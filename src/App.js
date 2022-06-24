@@ -1,7 +1,8 @@
 import CardContainer from "./components/CardContainer";
 import Navbar from "./components/Navbar";
 import Modal from "./components/Modal";
-import { calculateTotals, getCartProducts } from "./store/features/cart/cartSlice";
+import { calculateTotals } from "./store/features/cart/cartSlice";
+import { getCartProducts } from "./store/features/cart/cartThunk";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 

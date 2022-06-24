@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
+import { getCartProducts } from "./cartThunk";
 
 const initialState = {
   cartItems: [],
@@ -8,17 +8,6 @@ const initialState = {
   isLoading: true,
   error: null,
 };
-
-const productsUrl = process.env.REACT_APP_PRODUCTS_URL;
-
-export const getCartProducts = createAsyncThunk("cart/getProducts", async (_, thunkAPI) => {
-  try {
-    const response = await axios(productsUrl);
-    return response.data;
-  } catch (error) {
-    thunkAPI.rejectWithValue("Something went wrong!");
-  }
-});
 
 const cartSlice = createSlice({
   name: "cart",
