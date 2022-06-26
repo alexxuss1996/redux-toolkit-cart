@@ -1,9 +1,9 @@
 import React from "react";
 import { ChevronUp, ChevronDown } from "../icons";
-import { decreaseAmount, increaseAmount, removeFromCart } from "../store/features/cart/cartSlice";
+import { CartItemType, decreaseAmount, increaseAmount, removeFromCart } from "../store/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
-const CardItem = ({ id, img, price, title, amount }) => {
+const CardItem = ({ id, title, img, price, amount }: CartItemType) => {
   const dispatch = useDispatch();
   return (
     <article className="cart-item">

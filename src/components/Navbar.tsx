@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
 import { CartIcon } from "../icons";
 
 const Navbar = () => {
-  const { totalItems } = useSelector(({ cart }) => cart);
+  const { totalItems } = useAppSelector(({ cart }) => cart);
   return (
     <nav className="nav-center">
       <h3>Product Cart</h3>

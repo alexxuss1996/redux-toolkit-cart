@@ -1,11 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { CartItemType } from "../store/features/cart/cartSlice";
 
 import { openModal } from "../store/features/modal/modalSlice";
 import CardItem from "./CardItem";
 
 const CardContainer = () => {
-  const { cartItems, totalPrice, totalItems } = useSelector(({ cart }) => cart);
-  const dispatch = useDispatch();
+  const { cartItems, totalPrice, totalItems } = useAppSelector(({ cart }) => cart);
+  const dispatch = useAppDispatch();
 
   if (totalItems < 1) {
     return (
@@ -24,7 +26,7 @@ const CardContainer = () => {
         <h2>Your bag</h2>
       </header>
       <div>
-        {cartItems.map((item) => (
+        {cartItems.map((item: CartItemType) => (
           <CardItem key={item.id} {...item} />
         ))}
       </div>

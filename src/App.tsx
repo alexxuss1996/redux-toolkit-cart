@@ -1,15 +1,16 @@
+import React from "react";
 import CardContainer from "./components/CardContainer";
 import Navbar from "./components/Navbar";
 import Modal from "./components/Modal";
 import { calculateTotals } from "./store/features/cart/cartSlice";
 import { getCartProducts } from "./store/features/cart/cartThunk";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "./hooks";
 
 function App() {
-  const dispatch = useDispatch();
-  const { cartItems, isLoading } = useSelector(({ cart }) => cart);
-  const { isOpen } = useSelector(({ modal }) => modal);
+  const dispatch = useAppDispatch();
+  const { cartItems, isLoading } = useAppSelector((store) => store.cart);
+  const { isOpen } = useAppSelector((store) => store.modal);
   useEffect(() => {
     let ignore = false;
     if (!ignore) {
